@@ -4,10 +4,8 @@ public class Consult {
     private String date;
     private String title;
     private String message;
-
-
-
     private String sender;
+
     public Consult() {
     }
 

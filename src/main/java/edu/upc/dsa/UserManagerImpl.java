@@ -1,5 +1,6 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.models.Consult;
 import edu.upc.dsa.models.Item;
 
 import java.util.HashMap;
@@ -14,11 +15,13 @@ public class UserManagerImpl implements UserManager {
     protected List<User> users;
     private HashMap<String, User> hmUsers;
     protected List<Item> items;
+    protected List<Consult> consults;
     final static Logger logger = Logger.getLogger(UserManagerImpl.class);
 
     private UserManagerImpl() {
         this.users = new LinkedList<>();
         this.items = new LinkedList<>();
+        this.consults = new LinkedList<>();
         hmUsers = new HashMap<String, User>();
     }
 
@@ -89,4 +92,11 @@ public class UserManagerImpl implements UserManager {
     public List<User> getUsers(){
         return users;
     }
+
+    public List<Consult> questions(Consult question){
+        consults.add(question);
+        return consults;
+    }
+
+
 }

@@ -4,6 +4,7 @@ package edu.upc.dsa.services;
 import edu.upc.dsa.UserManager;
 import edu.upc.dsa.UserManagerImpl;
 
+import edu.upc.dsa.models.Consult;
 import edu.upc.dsa.models.Item;
 import edu.upc.dsa.models.LogInParams;
 import edu.upc.dsa.models.User;
@@ -148,6 +149,24 @@ public class UserService {
                 return Response.status(404).build();
 
             }
+    }
+
+    @POST
+    @ApiOperation(value = "consulta", notes = "minim 2 Gilbert")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response= Consult.class, responseContainer="List"),
+
+
+    })
+
+    @Path("/question")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response question(Consult consult) {
+
+        List<Consult> lquestions = this.um.questions(consult);
+        GenericEntity<List<Consult>> entity = new GenericEntity<List<Consult>>(lquestions) {};
+        return Response.status(201).entity(entity).build()  ;
+
     }
 
 

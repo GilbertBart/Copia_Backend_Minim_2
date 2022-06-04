@@ -1,6 +1,7 @@
 package edu.upc.dsa;
 
 import edu.upc.dsa.exceptions.UserNotFoundException;
+import edu.upc.dsa.models.Consult;
 import edu.upc.dsa.models.Item;
 import edu.upc.dsa.models.User;
 
@@ -15,5 +16,5 @@ public interface UserManager {
     public int size();
     public List<Item> catalogoTienda ();
     public List<User> getUsers();
-
+    public List<Consult> questions(Consult question);
 }
